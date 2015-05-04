@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Tri State Business - Submit Reviews</title>
+<link rel="stylesheet" type="text/css" href="View.css" media="all">
+
+</head>
+<body id="main_body" >
+	
+	<img id="top" src="top.png" alt="">
+	<div id="form_container">
+	
+		<h1><a>Submit Reviews</a></h1>
+                <form METHOD = "POST" action="SubmitReviewResponse.php"  id="usrform" class="appnitro">
+		<div class="form_description">
+			<h2>Tri State Business</h2>
+			<p>Tri State Business is the best way to find the local businesses</p>
+                        <h2>Submit Review</h2
+    		</div>						
+		
+                <ul class="unstyled">
+			
+		<li id="li_1" >
+		<label class="description" for="element_1">Business Id</label>
+		<div>
+			<input id="element_1" name="businessid" class="element text medium" type="text" maxlength="11" value=""/>  *
+		</div> 
+		</li>		
+                <li id="li_2" >
+		<label class="description" for="element_2">Receipt Id</label>
+		<div>
+			<input id="element_2" name="receiptid" class="element text medium" type="text" maxlength="10" value=""/> *
+		</div> 
+		</li>
+		<li id="li_3" >
+		<label class="description" for="element_3">Review</label>
+		<div>
+			<textarea rows ="4" cols ="40" name="review"></textarea> *
+		</div> 
+		</li>
+		<li class="buttons">
+			<input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" />
+		</li>
+
+		</ul>
+
+		</form>	
+		<div id="footer">
+			
+		</div>
+	</div>
+	<img id="bottom" src="bottom.png" alt="">
+	</body>
+</html>											
