@@ -3,9 +3,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <script language='javascript'>
-function hideReview(){
-	window.reviews.style.visibility='hidden';
-}
+
 function showResults(){
 	//alert('submitted22');
 	//window.reviews.style.visibility='visible';
@@ -16,11 +14,8 @@ function showResults(){
 </head>
 <body onload=''>
 <form action="">
-<div>
-
+<div align='center' style="border-style:solid;border-width:1px;">
 <br><br>
-
-<br><br><br>
 <?PHP
 $servername = "mysql16.000webhost.com";
 $username = "a8047771_mysql";
@@ -38,24 +33,25 @@ $response = $_POST["response"];
 if($response ) {
 	 $sql = "UPDATE REVIEW SET RESPONSE='" . $response . "',STATUS='A' WHERE BUSINESSID='" . $businessID . "' AND RECEIPTID='" . $rid . "'";
 
-	echo "SQL query:  " . $sql ;
+	//echo "SQL query:  " . $sql ;
 	$result = mysqli_query($conn, $sql);
 	echo "</br></br></br>" ;
-	echo "result  :" . $result;
-	echo "</br></br></br>" ;
-	echo "<font color='green'>Responses updated successfully</b></font>";
+	echo "<font align='center' size='14' color='green'>Responses updated successfully</b></font>";
 } else {
-	echo "<font color='red'>Responses is emmpty</b></font>";
+	echo "<font align='center'  size='14' color='red'>Responses is emmpty</b></font>";
 	//exit();
 }
-
-
 mysqli_close($conn);
+	echo "</br></br></br>" ;
+	echo "LOG</br>" ;	
+	echo "Executed SQL query:  " . $sql . "</br>";
+	echo "Result  :" . $result;
 ?>
 
 
-<div id='reviews' name='reviews'>
+<div align='center' id='reviews' name='reviews'>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" value="Close" onclick='showResults()'/>
+</div>
 </div>
 </form>
 </body>
