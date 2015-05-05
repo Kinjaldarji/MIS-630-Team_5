@@ -1,0 +1,108 @@
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<script language='javascript'>
+
+function submitPage(){		
+	if(document.reg.businessType.value =="" ||
+		document.reg.userID.value == "" ||
+			document.reg.pwd.value == "" ||
+				document.reg.descr.value == "" ||
+					document.reg.fName.value == "" ||
+						document.reg.lName.value == "" ||
+							document.reg.addr1.value == "" ||
+								document.reg.addr2.value == "" ||
+									document.reg.city.value == "" ||
+										document.reg.state.value == "" ||
+											document.reg.zip.value == "" 	){
+					alert("Please enter all the fields");
+	}else{
+		alert("submiting form");
+		document.reg.submit();
+	}
+}
+</script>
+</head>
+<body>
+
+    <form action="boregister.php" name="reg" id="reg" method="post">
+    <table width="274" border="0" align="center" cellpadding="2" cellspacing="0">
+    <tr>
+    <td colspan="2">
+    <div align="center">
+    </div></td>
+    </tr>
+	<tr>
+	<td><div align="right">Service </div></td>
+	<td>
+			<select class="element select medium" id="businessType" name="businessType" >				
+				<option value="Food" selected="selected">Food</option>
+				<option value="Fshn" >Fashion</option>
+				<option value="Hlth" >Health</option>
+				<option value="Ed" >Education</option>
+				<option value="Toys" >Toys</option>
+				<option value="Gross" >Grocery </option>				
+			</select>		
+	</td>	
+	</tr>
+	<!--Username and pwd-->
+	<tr>
+    <td><div align="right">Username:</div></td>
+    <td><input type="text" name="userID" /></td>
+    </tr>
+    <tr>
+    <td><div align="right">Password:</div></td>
+    <td><input type="password" name="pwd" /></td>
+    </tr>
+	
+	<!--Description-->
+	<tr>
+    <td width="95"><div align="right">Description:</div></td>
+    <td width="171"><input type="text" name="descr" /></td>
+    </tr>
+	
+	<!--First Name and Last Name-->
+    <tr>
+    <td width="95"><div align="right">First Name:</div></td>
+    <td width="171"><input type="text" name="fName" /></td>
+    </tr>
+    <tr>
+    <td><div align="right">Last Name:</div></td>
+    <td><input type="text" name="lName" /></td>
+    </tr>
+	
+	<!--Address-->
+	<tr>
+    <td><div align="right">Address 1:</div></td>
+    <td><input type="text" name="addr1" /></td>
+    </tr>
+	
+	<tr>
+    <td><div align="right">Address 2:</div></td>
+    <td><input type="text" name="addr2" /></td>
+    </tr>
+	
+	<tr>
+    <td><div align="right">City:</div></td>
+    <td><input type="text" name="city" /></td>
+    </tr>
+	
+	<tr>
+    <td><div align="right">State:</div></td>
+    <td><input type="text" name="state" /></td>
+    </tr>
+	
+	<tr>
+    <td><div align="right">Zip Code:</div></td>
+    <td><input type="number" name="zip" /></td>
+    </tr>
+	
+	
+    <tr>
+    <td><div align="right"></div></td>
+    <td><input  type="button" value="Submit"  onClick="submitPage()"/></td>
+    </tr>
+    </table>
+    </form>
+</body>
+</html>
