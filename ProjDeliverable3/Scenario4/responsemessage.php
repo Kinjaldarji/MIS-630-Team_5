@@ -15,6 +15,7 @@ function showResults(){
 <body onload=''>
 <form action="">
 <div align='center' style="border-style:solid;border-width:1px;">
+<a href="form.html"><h6>Home</h6></a>
 <br><br>
 <?PHP
 $servername = "mysql16.000webhost.com";

@@ -15,12 +15,13 @@ function submitRes(){
 </script>
 </head>
 <body onload='hideReview()' >
-<form action="businessOwnerlogin.php" name='login' id='login' method='post'>
+<form action="enterReceipt.php" name='login' id='login' method='post'>
 	<div align='center' >
-	<label style="font-size:16px;"  ><b>Try State Businesses</b></label><br><br><br>
+	<label style="font-size:16px;"  ><b>Try State Businesses</b></label>
+	<a href="form.html"><h6>Home</h6></a>
+	<br><br><br>
 	</div>
 <div align='center' style="border-style:solid;border-width:1px;" >
-<a href="form.html"><h6>Home</h6></a>
 <br><br>
 <label style="font-size:12px;">Business ID : </label>
 <input type='text' name='bName' value="" maxlength="25" size="25" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -30,7 +31,7 @@ function submitRes(){
 </div>
 </form>
 <br>
-<form action='responsemessage.php' name='response' id='response' method='post'>
+<form action='receiptMessage.php' name='response' id='response' method='post'>
 <?php
 //header("Location: /reviewresponse.php");
 //echo "php code=====11111";
@@ -54,35 +55,34 @@ $sql = "SELECT * FROM BUSINESS WHERE BUSINESSID=" . $businessID ;
 //echo "no businessID  is supplied";
 exit();
 }
-
 //echo "php code=====33333";
 $result = mysqli_query($conn, $sql);
-
-if (mysqli_num_rows($result) > 0) {
-   
-    // output data of each row
+if (mysqli_num_rows($result) > 0) {     
     while($row = mysqli_fetch_assoc($result)) {		
          if($row["pwd"] == $pwd){			
-			 //echo "valid user.";
-			 $reviewsql = "SELECT * FROM REVIEW WHERE BUSINESSID='" .$businessID. "' AND STATUS='P'";
-			 $reviewResult = mysqli_query($conn, $reviewsql);
-				if (mysqli_num_rows($reviewResult) > 0) {					
-					echo "<table cellspacing='0' border='1'>";
-					echo "<tr > <th> Business ID </th> <th> Receipt ID </th> <th> Review </th> <th> Response </th></tr>";
-					// output data of each row
-					while($reviewrow = mysqli_fetch_assoc($reviewResult)) {
-						echo "<tr>";
-						echo "<td><input type='text' name='bid' value='" . $reviewrow["businessID"]. "'></td><td><input type='text' name='rid' value='" . $reviewrow["receiptID"]. "'> </td><td>" . $reviewrow["review"]. "</td><td><textarea rows='4' cols='50' name='response' > </textarea> </td>" ;
-						echo "</tr>";
-						break; //take only the first pending respose to make simple
-					}
+			 //echo "valid user.";	
+				echo "<div align='center' style='border-style:solid;border-width:1px;' >";
+					echo "<input type='hidden' name='bid' value='".$businessID."'> " ;
+					echo "</br><h5>Enter receipt ID's<h5></br>";
+					echo "<table cellspacing='0' border='1' width='25%'>";
+					echo "<tr>";					
+					echo "<td> Receipt ID</td><td><input type='text' name='rid1' value=''> </td>" ;
+					echo "</tr>";	
+					echo "<tr>";					
+					echo "<td> Receipt ID</td><td><input type='text' name='rid2' value=''> </td>" ;
+					echo "</tr>";	
+					echo "<tr>";					
+					echo "<td> Receipt ID</td><td><input type='text' name='rid3' value=''> </td>" ;
+					echo "</tr>";	
+					echo "<tr>";					
+					echo "<td> Receipt ID</td><td><input type='text' name='rid4' value=''> </td>" ;
+					echo "</tr>";					
 					echo "</table> <br> <div align='center'><input  type='button' value='Submit Response' onClick='submitRes()'/> </div><br><br>";					
-				} else {
-					echo "0 results";
-				}			
+	
 		 }else{
 			echo "<font color='red'>Business ID or password invalid.</font>";
-		 }		 
+		 }	
+			echo "</div>";
 	}    
 } else {
     echo "0 results, echo Not a valid user.";
